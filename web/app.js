@@ -303,6 +303,22 @@ if (typeof document !== 'undefined') {
       el('copy-kifu').textContent = 'コピーしました';
       setTimeout(() => { el('copy-kifu').textContent = '棋譜をコピー'; }, 1500);
     });
+    el('mail-result').addEventListener('click', () => {
+      const black = state.board.filter((v) => v === 1).length;
+      const white = state.board.filter((v) => v === 2).length;
+      const subject = 'オセロ対局結果';
+      const lines = [
+        'オセロの対局が終わりました。解析をお願いします。',
+        '',
+        `棋譜: ${state.history.map(coord).join('')}`,
+        `自分の色: ${state.human === 1 ? '黒（先手）' : '白（後手）'}`,
+        `結果: 黒 ${black} - ${white} 白（Web版AI レベル${state.level}との対戦）`,
+      ];
+      const url = 'mailto:muse-yuki0831@muse.ai'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(lines.join('\n'));
+      window.location.href = url;
+    });
     newGame();
   });
 }

@@ -41,7 +41,8 @@
     <h2>棋譜（オセロクエスト形式）</h2>
     <textarea id="kifu" rows="3" readonly></textarea>
     <button id="copy-kifu" type="button">棋譜をコピー</button>
-    <p class="note">終局後にこの棋譜を <code>analyze_game.py</code> に渡すか、チャットに送ると弱点を解析できます。</p>
+    <button id="mail-result" type="button">結果をメールで送信（解析依頼）</button>
+    <p class="note">「結果をメールで送信」を押すと、宛先 muse-yuki0831@muse.ai・棋譜・自分の色・結果が入ったメールがメールアプリで開きます。そのまま送信すれば、対局の解析が始まります。オセロクエストの対局も、棋譜と自分の色を書いて同じ宛先に送れば解析できます。</p>
   </section>
 </main>
 <script src="app.js"></script>
