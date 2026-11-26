@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オセロAI対戦</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>オセロAI対戦</h1>
+  <p class="sub">GitHubリポジトリ <a href="https://github.com/leonyuki/othello-ai">leonyuki/othello-ai</a> のWeb版です。対戦後に棋譜をコピーすれば、弱点解析ツールやチャットでの分析に使えます。</p>
+
+  <div class="controls">
+    <label>あなたの色
+      <select id="color">
+        <option value="1">黒（先手）</option>
+        <option value="2">白（後手）</option>
+      </select>
+    </label>
+    <label>AIの強さ
+      <select id="level">
+        <option value="1">レベル1 入門</option>
+        <option value="2" selected>レベル2 中級</option>
+        <option value="3">レベル3 上級</option>
+        <option value="4">レベル4 最強</option>
+      </select>
+    </label>
+    <button id="new-game" type="button">新しい対局</button>
+    <button id="undo" type="button">待った（1手戻す）</button>
+  </div>
+
+  <div class="meta">
+    <span id="score">黒 2 - 2 白</span>
+    <span id="status">あなたの番です</span>
+  </div>
+
+  <div id="board" role="grid" aria-label="オセロ盤"></div>
+
+  <section class="kifu-box">
+    <h2>棋譜（オセロクエスト形式）</h2>
+    <textarea id="kifu" rows="3" readonly></textarea>
+    <button id="copy-kifu" type="button">棋譜をコピー</button>
+    <p class="note">終局後にこの棋譜を <code>analyze_game.py</code> に渡すか、チャットに送ると弱点を解析できます。</p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

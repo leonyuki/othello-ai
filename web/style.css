@@ -1,0 +1,113 @@
+:root {
+  --board-green: #0a7a43;
+  --board-line: #065c31;
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #0a7a43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  color: var(--ink);
+  background: #f6f7f6;
+}
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+h1 { font-size: 24px; margin: 8px 0 4px; }
+.sub { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+.controls label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.controls select, .controls button {
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #c9cfc9;
+  background: #fff;
+}
+.controls button { cursor: pointer; }
+#new-game { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+#score { font-weight: 700; }
+#status { color: var(--muted); }
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  background: var(--board-line);
+  border: 2px solid var(--board-line);
+  border-radius: 6px;
+  padding: 2px;
+  aspect-ratio: 1;
+}
+.cell {
+  background: var(--board-green);
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  cursor: default;
+}
+.cell.playable { cursor: pointer; }
+.cell.playable:hover { background: #0d8f4f; }
+.disc {
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  display: block;
+}
+.disc.black { background: radial-gradient(circle at 35% 30%, #4a4a4a, #000); }
+.disc.white { background: radial-gradient(circle at 35% 30%, #ffffff, #cfcfcf); }
+.disc.last { box-shadow: 0 0 0 3px #ffd94d; }
+.hint {
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  display: block;
+}
+
+.kifu-box { margin-top: 20px; }
+.kifu-box h2 { font-size: 16px; margin: 0 0 8px; }
+.kifu-box textarea {
+  width: 100%;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  padding: 8px;
+  border: 1px solid #c9cfc9;
+  border-radius: 8px;
+  word-break: break-all;
+}
+.kifu-box button {
+  margin-top: 8px;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #c9cfc9;
+  background: #fff;
+  cursor: pointer;
+}
+.note { color: var(--muted); font-size: 13px; }
