@@ -1,0 +1,93 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  background: #10231a;
+  color: #eef4ee;
+}
+header { text-align: center; padding: 16px 12px 0; }
+h1 { margin: 0; font-size: 1.6rem; }
+.subtitle { color: #a9c4ae; margin: 4px 0 12px; font-size: .9rem; }
+.tabs { display: flex; justify-content: center; gap: 8px; }
+.tab {
+  background: #1d3a29; color: #cfe3d2; border: 1px solid #35573f;
+  padding: 8px 22px; border-radius: 999px; cursor: pointer; font-size: 1rem;
+}
+.tab.active { background: #2e7d46; color: #fff; border-color: #2e7d46; }
+main { max-width: 880px; margin: 0 auto; padding: 16px 12px 32px; }
+.panel { display: none; }
+.panel.active { display: block; }
+.hidden { display: none !important; }
+
+.board {
+  display: grid; grid-template-columns: repeat(8, 1fr);
+  width: min(92vw, 400px); aspect-ratio: 1; margin: 8px auto;
+  background: #157347; border: 4px solid #0b3d24; border-radius: 6px;
+}
+.cell {
+  border: 1px solid rgba(0,0,0,.35); display: flex; align-items: center;
+  justify-content: center; cursor: default; position: relative;
+}
+.cell.playable { cursor: pointer; }
+.cell.playable:hover { background: rgba(255,255,255,.15); }
+.cell .disc { width: 82%; height: 82%; border-radius: 50%; pointer-events: none; }
+.disc.black { background: radial-gradient(circle at 35% 30%, #555, #000); }
+.disc.white { background: radial-gradient(circle at 35% 30%, #fff, #cfcfcf); }
+.cell .hint-dot {
+  width: 26%; height: 26%; border-radius: 50%;
+  background: rgba(255,255,120,.55); pointer-events: none;
+}
+.cell.last-move { background: rgba(255, 213, 79, .35); }
+.cell.correct-flash { background: rgba(76, 175, 80, .55); }
+.cell.wrong-flash { background: rgba(229, 57, 53, .55); }
+
+.controls, .row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 8px 0; }
+button {
+  background: #244534; color: #e8f2e9; border: 1px solid #3c5f47;
+  border-radius: 8px; padding: 8px 14px; font-size: .95rem; cursor: pointer;
+}
+button:hover { background: #2e5741; }
+button.primary { background: #2e7d46; border-color: #2e7d46; color: #fff; font-weight: bold; }
+button.danger { background: #5a2323; border-color: #7a3232; }
+.info { text-align: center; color: #cfe3d2; min-height: 1.2em; }
+
+.learn-layout { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.study { text-align: center; }
+.joseki-detail { max-width: 360px; }
+.joseki-detail h2 { margin: 4px 0; }
+.meta { color: #a9c4ae; margin: 2px 0; }
+.seq { font-family: ui-monospace, monospace; letter-spacing: 1px; font-size: 1.05rem; }
+.tip-box { background: #173626; border: 1px solid #2c4f38; border-radius: 10px; padding: 10px 14px; margin-top: 10px; }
+.tip-box h3 { margin: 6px 0 2px; font-size: .9rem; color: #ffd54f; }
+.tip-box p { margin: 0 0 8px; }
+.status-line { color: #a9c4ae; }
+
+.list-title { margin-top: 24px; }
+.card-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.card {
+  background: #173626; border: 1px solid #2c4f38; border-radius: 10px;
+  padding: 10px 12px; cursor: pointer; text-align: left; color: inherit; width: 100%;
+}
+.card:hover { border-color: #4c7a5a; }
+.card h4 { margin: 0 0 4px; font-size: 1.05rem; }
+.card p { margin: 2px 0; color: #c4d8c6; font-size: .88rem; }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .78rem; font-weight: bold; }
+.chip.new { background: #455a64; color: #eceff1; }
+.chip.learning { background: #f9a825; color: #212121; }
+.chip.mastered { background: #43a047; color: #fff; }
+.boxdots { letter-spacing: 2px; color: #ffd54f; }
+
+.daily-box, .free-box {
+  background: #173626; border: 1px solid #2c4f38; border-radius: 10px;
+  padding: 14px 16px; margin-bottom: 14px; text-align: center;
+}
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 400px; margin: 10px auto; }
+.choices button { padding: 12px; font-size: 1rem; }
+.feedback { text-align: center; min-height: 1.4em; font-weight: bold; }
+.feedback.ok { color: #81c784; }
+.feedback.ng { color: #e57373; }
+#test-play h2, #test-play p, #test-result h2 { text-align: center; }
+#result-list { max-width: 480px; margin: 0 auto 12px; }
+#result-list p { margin: 4px 0; }
+footer { text-align: center; color: #7d9a83; font-size: .85rem; padding-bottom: 20px; }
+footer a { color: #a9c4ae; }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定石トレーナー | オセロ定石を覚える</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>定石トレーナー</h1>
+  <p class="subtitle">オセロの定石を覚えるための学習・テストアプリ</p>
+  <nav class="tabs">
+    <button class="tab active" data-tab="learn">学習</button>
+    <button class="tab" data-tab="test">テスト</button>
+    <button class="tab" data-tab="progress">進捗</button>
+  </nav>
+</header>
+
+<main>
+  <!-- 学習 -->
+  <section id="tab-learn" class="panel active">
+    <div class="learn-layout">
+      <div class="study">
+        <div id="board-learn" class="board"></div>
+        <div class="controls">
+          <button id="btn-first">最初</button>
+          <button id="btn-prev">戻る</button>
+          <button id="btn-play">自動再生</button>
+          <button id="btn-next">進む</button>
+          <button id="btn-last">最後</button>
+        </div>
+        <p id="study-info" class="info"></p>
+      </div>
+      <div class="joseki-detail">
+        <h2 id="detail-name">-</h2>
+        <p id="detail-meta" class="meta"></p>
+        <p id="detail-seq" class="seq"></p>
+        <p id="detail-feature"></p>
+        <div class="tip-box">
+          <h3>覚え方のコツ</h3>
+          <p id="detail-tip"></p>
+          <h3>形のイメージ</h3>
+          <p id="detail-image"></p>
+        </div>
+        <p id="detail-status" class="status-line"></p>
+      </div>
+    </div>
+    <h3 class="list-title">定石一覧（タップで学習）</h3>
+    <div id="joseki-list" class="card-list"></div>
+  </section>
+
+  <!-- テスト -->
+  <section id="tab-test" class="panel">
+    <div id="test-home">
+      <div class="daily-box">
+        <h2>今日のテスト</h2>
+        <p id="daily-status">読み込み中</p>
+        <button id="btn-daily" class="primary">今日のテストを始める（5問）</button>
+      </div>
+      <div class="free-box">
+        <h2>自由テスト</h2>
+        <p>好きな形式で何問でも練習できます。結果は定石ごとの記録に反映されます。</p>
+        <div class="row">
+          <button data-free="next">次の一手</button>
+          <button data-free="replay">手順再現</button>
+          <button data-free="name">名前当て</button>
+          <button data-free="mix">ミックス</button>
+        </div>
+      </div>
+    </div>
+    <div id="test-play" class="hidden">
+      <p id="q-progress" class="info"></p>
+      <h2 id="q-title">-</h2>
+      <p id="q-text"></p>
+      <div id="board-test" class="board"></div>
+      <div id="q-choices" class="choices hidden"></div>
+      <p id="q-feedback" class="feedback"></p>
+      <div class="row">
+        <button id="btn-giveup">答えを見る</button>
+        <button id="btn-quit-test">テストをやめる</button>
+        <button id="btn-next-q" class="primary hidden">次の問題へ</button>
+      </div>
+    </div>
+    <div id="test-result" class="hidden">
+      <h2>結果</h2>
+      <p id="result-summary"></p>
+      <div id="result-list"></div>
+      <button id="btn-back-home" class="primary">テスト画面に戻る</button>
+    </div>
+  </section>
+
+  <!-- 進捗 -->
+  <section id="tab-progress" class="panel">
+    <p id="progress-summary" class="info"></p>
+    <div id="progress-list" class="card-list"></div>
+    <button id="btn-reset" class="danger">記録をリセット</button>
+  </section>
+</main>
+
+<footer>
+  <p><a href="../index.html">対戦アプリに戻る</a> ／ 記録はこのブラウザに保存されます</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
